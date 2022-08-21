@@ -14,7 +14,6 @@ app.use(bodyParser.json());
 app.use('/user', routes);
 
 app.use(express.static('public'));
-app.use('/profile', express.static('images'));
 
 app.get('*', (req, res, next) => {
     res.status(404).send({

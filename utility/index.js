@@ -26,8 +26,7 @@ module.exports = {
                 return res.status(400).json({ message: err.message, statuscode: 400 })
             }
 
-            console.log(req.file);
-            req.profileUrl = `http://localhost:3000/${req.file.filename}`;
+            req.profileUrl = `${req.file.filename}`;
             next();
         })
     },
