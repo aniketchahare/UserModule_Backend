@@ -8,7 +8,13 @@ const app = express(),
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/public'));
+
+
+// Rest Api routes
+app.use('/user', routes);
+
+app.use(express.static('public'));
+app.use('/profile', express.static('images'));
 
 app.get('*', (req, res, next) => {
     res.status(404).send({
@@ -29,9 +35,6 @@ app.use((err, req, res, next) => {
         }
     });
 });
-
-// Rest Api routes
-app.use('/user', routes);
 
 // start server
 app.listen(process.env.PORT, function () {
