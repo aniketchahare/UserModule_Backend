@@ -16,18 +16,15 @@ routes.patch('/update'
     , validate
     , controller.update);
 
-routes.delete('/delete'
+routes.post('/delete'
     , val_objectId
     , validate
     , controller.delete);
 
-routes.get('/get'
+routes.post('/get'
+    // , val_objectId
+    // , validate
     , controller.get);
-
-routes.post('/getby'
-    , val_objectId
-    , validate
-    , controller.getById);
 
 routes.post('/upload/profile'
     , storeImg

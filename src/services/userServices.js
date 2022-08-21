@@ -83,7 +83,7 @@ async function checkUserExist(data) {
         let result = await userModel.find(data);
         return result && result.length;
     } catch (err) {
-        console.error(err);
+        // console.error(err);
         throw err;
     }
 }

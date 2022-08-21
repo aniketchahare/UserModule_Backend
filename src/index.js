@@ -1,11 +1,13 @@
 require('dotenv').config();
 const express = require('express'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    cors = require('cors');
 
 const app = express(),
     connectdb = require('../config/db').connect,
     routes = require('./routes');
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -25,7 +27,7 @@ app.get('*', (req, res, next) => {
 
 app.use((err, req, res, next) => {
     if (!err) return next();
-    console.error("Internal server error", err)
+    // console.error("Internal server error", err)
     res.status(500).send({
         error: {
             success: false,

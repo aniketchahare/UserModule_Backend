@@ -43,7 +43,7 @@ module.exports = {
             let user = new User(userData)
             return await user.save();
         } catch (err) {
-            console.error("create err in mondel--> ", err);
+            // console.error("create err in mondel--> ", err);
             throw err;
         }
     },
@@ -52,7 +52,7 @@ module.exports = {
         try {
             return await User.find(query);
         } catch (err) {
-            console.error("find err in mondel--> ", err);
+            // console.error("find err in mondel--> ", err);
             throw err;
         }
     },
@@ -61,7 +61,7 @@ module.exports = {
         try {
             return await User.findByIdAndUpdate(findBy, { $set: data }, { new: true });
         } catch (err) {
-            console.error(err);
+            // console.error(err);
             throw err;
         }
     },
@@ -70,7 +70,7 @@ module.exports = {
         try {
             return await User.findOneAndDelete(findBy);
         } catch (err) {
-            console.error(err);
+            // console.error(err);
             throw err;
         }
     },
@@ -80,7 +80,7 @@ module.exports = {
         try {
             return await User.find(findBy);
         } catch (err) {
-            console.error(err);
+            // console.error(err);
             throw err;
         }
     },

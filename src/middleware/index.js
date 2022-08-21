@@ -28,7 +28,7 @@ exports.validate = (req, res, next) => {
         } else {
             console.log('User defined Errors: ', err);
         }
-        console.error('err', err);
+        // console.error('err', err);
         return res.status(500).json(response);
     }
 }

@@ -17,7 +17,7 @@ module.exports = {
             if (result && result.ErrorMessage) {
                 return response.createResponse(res, result.status, result.ErrorMessage);
             } else {
-                return response.createResponse(res, 200, messages.USER_CREATED_SUCCESS);
+                return response.createResponse(res, 200, messages.USER_CREATED_SUCCESS, result);
             }
         } catch (err) {
             next(err)
@@ -54,7 +54,7 @@ module.exports = {
 
     async get(req, res, next) {
         try {
-            let result = await userServices.get();
+            let result = req.body._id ? await userServices.get(req.body) : await userServices.get();
 
             if (result && result.ErrorMessage) {
                 return response.createResponse(res, result.status, result.ErrorMessage);

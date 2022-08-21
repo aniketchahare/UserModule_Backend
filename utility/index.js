@@ -12,7 +12,7 @@ module.exports = {
             }
             return res.status(status).send(respData);
         } catch (err) {
-            console.error(err);
+            // console.error(err);
             throw err;
         }
     },
@@ -22,7 +22,7 @@ module.exports = {
 
         singleUpload(req, res, (err, data) => {
             if (err) {
-                console.error("error occur in uploadImg utility callback", err.message)
+                // console.error("error occur in uploadImg utility callback", err.message)
                 return res.status(400).json({ message: err.message, statuscode: 400 })
             }
 
